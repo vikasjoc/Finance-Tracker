@@ -6,4 +6,5 @@ build/
 *.log
 logs/
 .vercel
+server/data/db/
 

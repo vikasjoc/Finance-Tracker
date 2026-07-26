@@ -1,8 +1,20 @@
 import axios from 'axios';
 import toast from 'react-hot-toast';
 
+// Determine the base URL for API calls
+// In production, VITE_API_URL should point to the deployed backend
+// In development, we proxy through Vite's dev server
+const getBaseURL = () => {
+  // Check if running in production (VITE_API_URL would be set in deployment)
+  if (import.meta.env.VITE_API_URL) {
+    return import.meta.env.VITE_API_URL;
+  }
+  // In development, use Vite's proxy
+  return '/api';
+};
+
 const API = axios.create({
-  baseURL: '/api',
+  baseURL: getBaseURL(),
   headers: {
     'Content-Type': 'application/json',
   },
