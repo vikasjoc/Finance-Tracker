@@ -49,7 +49,7 @@ const AuthLayout = () => {
             <div className="mt-8 grid grid-cols-3 gap-4">
               {[
                 { icon: '📊', label: 'Track Spending' },
-                { icon: '🎯', label: 'Set Goals' },
+                { icon: '🎯', label: 'Set Budgets' },
                 { icon: '🤖', label: 'AI Insights' },
               ].map((item, i) => (
                 <motion.div
