@@ -60,7 +60,7 @@ const Register = () => {
             minLength: { value: 2, message: 'Name must be at least 2 characters' },
           })}
           className="input-field"
-          placeholder="John Doe"
+          placeholder="your name"
         />
         {errors.name && (
           <p className="mt-1 text-sm text-red-500">{errors.name.message}</p>
@@ -78,7 +78,7 @@ const Register = () => {
             pattern: { value: /^\S+@\S+\.\S+$/, message: 'Invalid email' },
           })}
           className="input-field"
-          placeholder="you@example.com"
+          placeholder="you@domain.com"
         />
         {errors.email && (
           <p className="mt-1 text-sm text-red-500">{errors.email.message}</p>

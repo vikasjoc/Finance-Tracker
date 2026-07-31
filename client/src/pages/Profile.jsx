@@ -76,7 +76,7 @@ const Profile = () => {
           </div>
           <div>
             <label className="block text-sm font-medium mb-2">Phone</label>
-            <input type="text" {...registerProfile('phone')} className="input-field" placeholder="+91 9876543210" />
+            <input type="text" {...registerProfile('phone')} className="input-field" placeholder="+91 **********" />
           </div>
           <div>
             <label className="block text-sm font-medium mb-2">Currency</label>

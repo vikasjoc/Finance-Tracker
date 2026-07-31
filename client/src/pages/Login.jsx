@@ -56,7 +56,7 @@ const Login = () => {
           type="email"
           {...register('email', { required: 'Email is required' })}
           className="input-field"
-          placeholder="you@example.com"
+          placeholder="you@domain.com"
         />
         {errors.email && (
           <p className="mt-1 text-sm text-red-500">{errors.email.message}</p>
@@ -120,18 +120,6 @@ const Login = () => {
           Create one
         </Link>
       </p>
-
-      <div className="mt-6 p-4 bg-gray-50 dark:bg-dark-800 rounded-xl">
-        <p className="text-xs font-medium text-gray-500 dark:text-gray-400 mb-2">
-          Demo Credentials
-        </p>
-        <p className="text-xs text-gray-600 dark:text-gray-400">
-          Email: demo@financetracker.com
-        </p>
-        <p className="text-xs text-gray-600 dark:text-gray-400">
-          Password: demo123
-        </p>
-      </div>
     </form>
   );
 };
