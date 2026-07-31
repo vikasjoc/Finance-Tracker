@@ -2,14 +2,16 @@ import axios from 'axios';
 import toast from 'react-hot-toast';
 
 // Determine the base URL for API calls
-// In production, VITE_API_URL should point to the deployed backend
-// In development, we proxy through Vite's dev server
 const getBaseURL = () => {
-  // Check if running in production (VITE_API_URL would be set in deployment)
+  // 1. Check if VITE_API_URL env variable is set (Vercel dashboard)
   if (import.meta.env.VITE_API_URL) {
     return import.meta.env.VITE_API_URL;
   }
-  // In development, use Vite's proxy
+  // 2. Check if running in production (detected by hostname)
+  if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+    return 'https://finance-tracker-api-5sfc.onrender.com/api';
+  }
+  // 3. In development, use Vite's proxy
   return '/api';
 };
 
