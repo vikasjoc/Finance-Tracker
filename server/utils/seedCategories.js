@@ -29,11 +29,13 @@ const defaultCategories = [
 
 const seedCategories = async () => {
   try {
-    await Category.deleteMany({ isDefault: true });
-    await Category.insertMany(defaultCategories);
-    console.log('Default categories seeded successfully');
+    const existingCount = await Category.countDocuments({ isDefault: true });
+    if (existingCount === 0) {
+      await Category.insertMany(defaultCategories);
+      console.log('✅ Default categories seeded successfully');
+    }
   } catch (error) {
-    console.error('Error seeding categories:', error.message);
+    console.error('⚠️ Error seeding categories:', error.message);
   }
 };
 
