@@ -2,16 +2,19 @@ import axios from 'axios';
 import toast from 'react-hot-toast';
 
 // Determine the base URL for API calls
+// Priority: VITE_API_URL env var > production detection > local dev proxy
 const getBaseURL = () => {
-  // 1. Check if VITE_API_URL env variable is set (Vercel dashboard)
+  // 1. VITE_API_URL set in Vercel dashboard (recommended approach)
   if (import.meta.env.VITE_API_URL) {
-    return import.meta.env.VITE_API_URL;
+    // Remove trailing slash if present
+    return import.meta.env.VITE_API_URL.replace(/\/+$/, '');
   }
-  // 2. Check if running in production (detected by hostname)
+  // 2. Auto-detect production by hostname
   if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+    // Fallback: custom Render backend URL (change this if your Render URL changes)
     return 'https://finance-tracker-api-mi3y.onrender.com/api';
   }
-  // 3. In development, use Vite's proxy
+  // 3. Local development - use Vite's proxy (see vite.config.js)
   return '/api';
 };
 
@@ -59,4 +62,3 @@ API.interceptors.response.use(
 );
 
 export default API;
-
