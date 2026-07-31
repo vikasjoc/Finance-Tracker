@@ -9,7 +9,7 @@ const getBaseURL = () => {
   }
   // 2. Check if running in production (detected by hostname)
   if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
-    return 'https://finance-tracker-api-5sfc.onrender.com/api';
+    return 'https://finance-tracker-api-mi3y.onrender.com/api';
   }
   // 3. In development, use Vite's proxy
   return '/api';
